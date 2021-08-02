@@ -3,6 +3,7 @@ package com.geekbrains.lavsam.TMDBViewer.view
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.geekbrains.lavsam.TMDBViewer.databinding.MainRecyclerItemBinding
 import com.geekbrains.lavsam.TMDBViewer.model.data.MovieDetail
 
 class MainFragmentAdapter :

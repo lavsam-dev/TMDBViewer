@@ -1,4 +1,4 @@
-package com.geekbrains.lavsam.TMDBViewer
+package com.geekbrains.lavsam.TMDBViewer.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -12,9 +12,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = MainActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
-//        if (savedInstanceState == null) {
-//            supportFragmentManager.beginTransaction()
-//                .replace(binding.container.id, )
-//        }
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .replace(binding.container.id, MainFragment.newInstance())
+                .commitNow()
+        }
     }
 }
