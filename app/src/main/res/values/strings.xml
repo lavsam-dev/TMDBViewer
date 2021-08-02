@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">TMDBViewer</string>
+    <string name="LogTag">TMDBViewer</string>
+</resources>
