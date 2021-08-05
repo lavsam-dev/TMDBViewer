@@ -4,82 +4,164 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/fragmentBackground">
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/main"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".view.MainFragment">
+        android:id="@+id/constraint"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
 
         <TextView
             android:id="@+id/movieName"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/movie_name_margin_top"
-            android:textSize="@dimen/movieNameTextSize"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="@dimen/details_title_text_size"
+            tools:text="Pulp Fiction"
+            android:layout_marginStart="@dimen/item_margin"
+            android:layout_marginTop="@dimen/item_margin"
+            android:layout_marginEnd="@dimen/item_margin"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Inception" />
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <ToggleButton
+            android:id="@+id/toggle_favorite"
+            android:layout_width="@dimen/details_toggle_size"
+            android:layout_height="@dimen/details_toggle_size"
+            android:layout_gravity="end"
+            android:background="@drawable/favorite_toggle"
+            android:textOn=""
+            android:textOff=""
+            android:layout_marginTop="@dimen/item_margin"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginRight="@dimen/item_margin"
+            android:layout_marginEnd="@dimen/item_margin" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/image_view_poster"
+            android:layout_width="@dimen/details_poster_width"
+            android:layout_height="@dimen/details_poster_height"
+            android:scaleType="center"
+            android:background="@color/purple_200"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/movieName"
+            android:layout_marginLeft="@dimen/item_margin"
+            android:layout_marginStart="@dimen/item_margin" />
 
         <TextView
-            android:id="@+id/movieOverview"
+            android:id="@+id/text_view_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_top_5dp"
-            android:paddingLeft="@dimen/movieOverview_paddingLeft"
-            android:paddingRight="@dimen/movieOverview_paddingRight"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/movieName"
-            tools:text="Cobb, a skilled thief who commits corporate espionage by infiltrating the subconscious of his targets is offered a chance to regain his old life as payment for a task considered to be impossible: 'Inception', the implantation of another person's idea into a target's subconscious." />
+            tools:text="movie"
+            app:layout_constraintStart_toEndOf="@id/image_view_poster"
+            app:layout_constraintTop_toTopOf="@id/image_view_poster"
+            android:layout_marginLeft="@dimen/item_margin"
+            android:layout_marginStart="@dimen/item_margin" />
 
         <TextView
-            android:id="@+id/movieGenreLabel"
+            android:id="@+id/text_view_year"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_15_dp"
-            android:text="@string/movieGenreLabel"
-            android:textSize="@dimen/movieGenre_text_size"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/movieOverview" />
-
-        <TextView
-            android:id="@+id/movieGenre"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_15_dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/movieGenreLabel"
-            tools:text="Action, Science Fiction, Adventure" />
-
-        <TextView
-            android:id="@+id/movieDirector"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_15_dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/movieGenre"
-            tools:text="Christopher Nolan" />
+            tools:text=": 2001"
+            app:layout_constraintStart_toEndOf="@id/text_view_type"
+            app:layout_constraintTop_toTopOf="@id/text_view_type"
+            android:layout_marginLeft="@dimen/item_margin"
+            android:layout_marginStart="@dimen/item_margin" />
 
         <TextView
             android:id="@+id/movieRuntime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_15_dp"
-            android:textSize="@dimen/movieRuntime_text_size"
-            android:textStyle="bold"
+            tools:text="120 min"
+            app:layout_constraintStart_toEndOf="@id/image_view_poster"
+            app:layout_constraintTop_toBottomOf="@id/text_view_type"
+            android:layout_marginLeft="@dimen/item_margin"
+            android:layout_marginStart="@dimen/item_margin" />
+
+        <TextView
+            android:id="@+id/text_view_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="10.0"
+            android:layout_marginStart="@dimen/item_margin"
+            app:layout_constraintTop_toBottomOf="@id/movieRuntime"
+            app:layout_constraintStart_toEndOf="@id/image_view_poster"
+            android:layout_marginLeft="@dimen/item_margin" />
+
+        <TextView
+            android:id="@+id/text_view_votes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="(9999)"
+            android:layout_marginStart="@dimen/item_margin"
+            app:layout_constraintStart_toEndOf="@id/text_view_rating"
+            app:layout_constraintTop_toTopOf="@id/text_view_rating"
+            android:layout_marginLeft="@dimen/item_margin" />
+
+        <TextView
+            android:id="@+id/text_view_actors"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="actors....a lot of different people who took part in this movie"
+            android:layout_marginStart="@dimen/item_margin"
+            android:layout_marginEnd="@dimen/item_margin"
+            app:layout_constraintStart_toEndOf="@id/image_view_poster"
+            app:layout_constraintTop_toBottomOf="@id/text_view_rating"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/movieDirector"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Quentin Tarantino"
+            android:layout_marginStart="@dimen/item_margin"
+            app:layout_constraintStart_toEndOf="@id/image_view_poster"
+            app:layout_constraintTop_toBottomOf="@id/text_view_actors"
+            android:layout_marginLeft="@dimen/item_margin" />
+
+        <TextView
+            android:id="@+id/text_view_released"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="31.12.1990"
+            android:layout_marginStart="@dimen/item_margin"
+            app:layout_constraintStart_toEndOf="@id/image_view_poster"
+            app:layout_constraintTop_toBottomOf="@id/movieDirector"
+            android:layout_marginLeft="@dimen/item_margin" />
+
+        <TextView
+            android:id="@+id/movieGenre"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="Genres: Action, Action, Action, Action, Action"
+            android:layout_marginStart="@dimen/item_margin"
+            android:layout_marginEnd="@dimen/item_margin"
+            app:layout_constraintStart_toEndOf="@id/image_view_poster"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_view_released"/>
+
+        <TextView
+            android:id="@+id/text_view_lists"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="Trending, Now playing"
+            android:layout_marginStart="@dimen/item_margin"
+            android:layout_marginEnd="@dimen/item_margin"
+            app:layout_constraintStart_toEndOf="@id/image_view_poster"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/movieGenre"/>
+
+        <TextView
+            android:id="@+id/movieOverview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/item_margin"
+            tools:text="A burger-loving hit man, his philosophical partner, a drug-addled gangster's moll and a washed-up boxer converge in this sprawling, comedic crime caper. Their adventures unfurl in three stories that ingeniously trip back and forth in time."
+            app:layout_constraintTop_toBottomOf="@id/image_view_poster"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/movieDirector"
-            tools:text="2h 28m" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
