@@ -24,14 +24,13 @@ class MainViewModel(private val repository: Repository = RepositoryImpl()) : Vie
         liveDataToObserve.value = AppState.Loading
         if (isLocal) {
             Thread {
-                sleep(1000)
                 liveDataToObserve.postValue(
                     AppState.Success(repository.getMovieFromLocalStorage())
                 )
             }.start()
         } else {
             Thread {
-                sleep(3000)
+                sleep(2000)
                 liveDataToObserve.postValue(
                     AppState.Success(repository.getMovieFromTMDB())
                 )
