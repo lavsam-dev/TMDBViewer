@@ -43,7 +43,7 @@
             android:layout_width="@dimen/details_poster_width"
             android:layout_height="@dimen/details_poster_height"
             android:scaleType="center"
-            android:background="@color/purple_200"
+            android:background="@drawable/pulpfiction_poster_200"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/movieName"
             android:layout_marginLeft="@dimen/item_margin"
