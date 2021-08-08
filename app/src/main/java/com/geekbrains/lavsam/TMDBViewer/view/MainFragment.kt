@@ -86,6 +86,7 @@ class MainFragment : Fragment() {
                 val movieDetailData = data.movieData
                 binding.loadingLayout.visibility = View.GONE
                 adapter.setMovieDetail(movieDetailData)
+                Snackbar.make(binding.mainFragmentFAB, getString(R.string.Load), Snackbar.LENGTH_SHORT).show()
             }
             is AppState.Loading -> {
                 binding.loadingLayout.visibility = View.VISIBLE

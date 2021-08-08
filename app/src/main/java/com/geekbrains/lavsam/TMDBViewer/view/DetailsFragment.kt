@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.geekbrains.lavsam.TMDBViewer.databinding.DetailFragmentBinding
 import com.geekbrains.lavsam.TMDBViewer.model.data.MovieDetail
+import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.snackbar.Snackbar.make
 
 class DetailsFragment : Fragment() {
 
@@ -23,7 +25,9 @@ class DetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        arguments?.getParcelable<MovieDetail>(BUNDLE_EXTRA)?.let { populateData(movieDetailData = it) }
+        arguments?.getParcelable<MovieDetail>(BUNDLE_EXTRA)?.let { populateData(movieDetailData = it)
+            Snackbar.make(binding.constraint, it.director, Snackbar.LENGTH_SHORT).show()
+        }
     }
 
     private fun populateData(movieDetailData: MovieDetail) {
