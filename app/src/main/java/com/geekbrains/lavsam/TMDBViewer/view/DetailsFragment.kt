@@ -23,10 +23,7 @@ class DetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val movieDetail = arguments?.getParcelable<MovieDetail>(BUNDLE_EXTRA)
-        if (movieDetail != null){
-            populateData(movieDetail)
-        }
+        arguments?.getParcelable<MovieDetail>(BUNDLE_EXTRA)?.let { populateData(movieDetailData = it) }
     }
 
     private fun populateData(movieDetailData: MovieDetail) {
