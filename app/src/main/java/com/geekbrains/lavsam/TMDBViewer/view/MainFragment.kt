@@ -1,10 +1,10 @@
 package com.geekbrains.lavsam.TMDBViewer.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.geekbrains.lavsam.TMDBViewer.R
@@ -46,7 +46,7 @@ class MainFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        adapter.setOnItemViewClickListener(object: OnItemViewClickListener {
+        adapter.setOnItemViewClickListener(object : OnItemViewClickListener {
             override fun onItemViewClick(movieDetail: MovieDetail) {
                 val manager = activity?.supportFragmentManager
                 if (manager != null) {
@@ -71,16 +71,14 @@ class MainFragment : Fragment() {
         viewModel.getMovieFromLocalSourse()
     }
 
-    private fun changeMovieDataSet() {
+    private fun changeMovieDataSet() =
         if (isDataSetLocal) {
             viewModel.getMovieFromLocalSourse()
             binding.mainFragmentFAB.setImageResource(R.drawable.ic_world_movies)
         } else {
             viewModel.getMovieFromTMDBSource()
             binding.mainFragmentFAB.setImageResource(R.drawable.ic_local_movies)
-        }
-        isDataSetLocal = !isDataSetLocal
-    }
+        }.also { isDataSetLocal = !isDataSetLocal }
 
     private fun renderData(data: AppState) {
         when (data) {
