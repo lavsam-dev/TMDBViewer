@@ -28,8 +28,7 @@ class MainFragmentAdapter :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
         val binding = MainRecyclerItemBinding.inflate(
             LayoutInflater.from(parent.context),
-            parent,
-            false
+            parent,false
         )
         return MainViewHolder(binding)
     }
@@ -46,9 +45,11 @@ class MainFragmentAdapter :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(movieDetail: MovieDetail) {
-            binding.mainFragmentRecyclerItemTextView.text = movieDetail.movie.name
-            binding.root.setOnClickListener {
-                onItemViewClickListener?.onItemViewClick(movieDetail)
+            with(binding) {
+                mainFragmentRecyclerItemTextView.text = movieDetail.movie.name
+                root.setOnClickListener {
+                    onItemViewClickListener?.onItemViewClick(movieDetail)
+                }
             }
         }
     }

@@ -8,6 +8,8 @@ import com.geekbrains.lavsam.TMDBViewer.model.repository.Repository
 import com.geekbrains.lavsam.TMDBViewer.model.repository.RepositoryImpl
 import java.lang.Thread.sleep
 
+private const val SLEEP_FROM_TMDB: Long = 2000
+
 class MainViewModel(private val repository: Repository = RepositoryImpl()) : ViewModel() {
 
     private val liveDataToObserve: MutableLiveData<AppState> = MutableLiveData()
@@ -30,7 +32,7 @@ class MainViewModel(private val repository: Repository = RepositoryImpl()) : Vie
             }.start()
         } else {
             Thread {
-                sleep(2000)
+                sleep(SLEEP_FROM_TMDB)
                 liveDataToObserve.postValue(
                     AppState.Success(repository.getMovieFromTMDB())
                 )
