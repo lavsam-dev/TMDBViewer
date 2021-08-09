@@ -3,4 +3,6 @@
     <string name="LogTag">TMDBViewer</string>
     <string name="movieGenreLabel">Жанр</string>
     <string name="Load">Load</string>
+    <string name="Error">Error</string>
+    <string name="Reload">Reload</string>
 </resources>

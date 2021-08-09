@@ -83,22 +83,22 @@ class MainFragment : Fragment() {
     private fun renderData(data: AppState) {
         when (data) {
             is AppState.Success -> {
-                val movieDetailData = data.movieData
-                binding.loadingLayout.visibility = View.GONE
-                adapter.setMovieDetail(movieDetailData)
-                Snackbar.make(binding.mainFragmentFAB, getString(R.string.Load), Snackbar.LENGTH_SHORT).show()
+                binding.loadingLayout.hide()
+                adapter.setMovieDetail(data.movieData)
             }
             is AppState.Loading -> {
-                binding.loadingLayout.visibility = View.VISIBLE
+                binding.loadingLayout.show()
             }
             is AppState.Error -> {
-                binding.loadingLayout.visibility = View.GONE
-                Snackbar.make(binding.mainFragmentFAB, "Error", Snackbar.LENGTH_INDEFINITE)
-                    .setAction("Reload") {
-                        if (isDataSetLocal) viewModel.getMovieFromLocalSourse()
-                        else viewModel.getMovieFromTMDBSource()
-                    }
-                    .show()
+                binding.loadingLayout.hide()
+                binding.mainFragmentFAB.showSnackBarAction(
+                    getString(R.string.Error),
+                    getString(R.string.Reload)
+                )
+                {
+                    if (isDataSetLocal) viewModel.getMovieFromLocalSourse()
+                    else viewModel.getMovieFromTMDBSource()
+                }
             }
         }
     }
