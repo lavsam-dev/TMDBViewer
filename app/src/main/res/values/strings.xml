@@ -5,4 +5,5 @@
     <string name="Load">Load</string>
     <string name="Error">Error</string>
     <string name="Reload">Reload</string>
+    <string name="absent_API_KEY">API_KEY должен быть в файле tmdb.property</string>
 </resources>

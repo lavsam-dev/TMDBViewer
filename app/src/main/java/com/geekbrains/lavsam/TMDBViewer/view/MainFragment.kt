@@ -96,8 +96,11 @@ class MainFragment : Fragment() {
                     getString(R.string.Reload)
                 )
                 {
-                    if (isDataSetLocal) viewModel.getMovieFromLocalSourse()
-                    else viewModel.getMovieFromTMDBSource()
+                    if (isDataSetLocal) {
+                        viewModel.getMovieFromLocalSourse()
+                    } else {
+                        viewModel.getMovieFromTMDBSource()
+                    }
                 }
             }
         }
