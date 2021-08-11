@@ -22,3 +22,5 @@ fun getMovies() = listOf(
         "Action, Science Fiction, Adventure", "Christopher Nolan", "2h 28m"
     )
 )
+
+

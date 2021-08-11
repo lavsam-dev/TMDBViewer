@@ -58,16 +58,6 @@ class DetailsFragment : Fragment() {
         }
     }
 
-    private fun populateData(movieDetailData: MovieDetail) {
-        with(binding) {
-            movieName.text = movieDetailData.movie.name
-            movieOverview.text = movieDetailData.overview
-            movieGenre.text = movieDetailData.genre
-            movieDirector.text = movieDetailData.director
-            movieRuntime.text = movieDetailData.runtime
-        }
-    }
-
     @RequiresApi(Build.VERSION_CODES.N)
     private fun loadMovieDetail(movieDetailData: MovieDetail) {
         val urlMovieDetail = "https://api.themoviedb.org/3/movie/${movieDetailData.movie.id}?api_key=$TMDB_API_KEY"
@@ -88,13 +78,6 @@ class DetailsFragment : Fragment() {
                     val movieDetailDTO: MovieDetailDTO =
                         Gson().fromJson(getLines(bufferedReader), MovieDetailDTO::class.java)
                     handler.post { displayMovieDetail(movieDetailDTO, movieDetailData) }
-
-//                    urlConnection.disconnect()
-//                    val uriMoviePoster = URL(urlMoviePoster + movieDetailDTO.poster_path)
-//                    urlConnection = uriMoviePoster.openConnection() as HttpsURLConnection
-//                    urlConnection.requestMethod = "GET"
-//                    urlConnection.readTimeout = 10000
-//                    binding.imageViewPoster.setImageBitmap(BitmapFactory.decodeStream(urlConnection.getInputStream()))
 
                 } catch (e: Exception) {
                     Log.e("MovieDetail", "Fail connection", e)
@@ -124,6 +107,10 @@ class DetailsFragment : Fragment() {
             movieName.text =  movieDetailDTO.original_title.toString()
             movieOverview.text = movieDetailDTO.overview.toString()
             movieRuntime.text = movieDetailDTO.runtime.toString()
+            text_view_released.text = movieDetailDTO.release_date.toString()
+            text_view_votes.text = movieDetailDTO.vote_count.toString()
+            text_view_popularity.text = movieDetailDTO.vote_average.toString()
+
         }
     }
 

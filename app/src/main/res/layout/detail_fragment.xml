@@ -80,7 +80,7 @@
             tools:text="120 min" />
 
         <TextView
-            android:id="@+id/text_view_rating"
+            android:id="@+id/text_view_popularity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/item_margin"
@@ -95,8 +95,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/item_margin"
             android:layout_marginLeft="@dimen/item_margin"
-            app:layout_constraintStart_toEndOf="@id/text_view_rating"
-            app:layout_constraintTop_toTopOf="@id/text_view_rating"
+            app:layout_constraintStart_toEndOf="@id/text_view_popularity"
+            app:layout_constraintTop_toTopOf="@id/text_view_popularity"
             tools:text="(9999)" />
 
         <TextView
@@ -107,7 +107,7 @@
             android:layout_marginEnd="@dimen/item_margin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/image_view_poster"
-            app:layout_constraintTop_toBottomOf="@id/text_view_rating"
+            app:layout_constraintTop_toBottomOf="@id/text_view_popularity"
             tools:text="actors....a lot of different people who took part in this movie" />
 
         <TextView
