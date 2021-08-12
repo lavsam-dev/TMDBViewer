@@ -60,6 +60,7 @@ class DetailsFragment : Fragment() {
 
     @RequiresApi(Build.VERSION_CODES.N)
     private fun loadMovieDetail(movieDetailData: MovieDetail) {
+        // отладочные варианты, позже уберу
         val urlMovieDetail = "https://api.themoviedb.org/3/movie/${movieDetailData.movie.id}?api_key=$TMDB_API_KEY"
 //        val urlMoviePoster = "https://image.tmdb.org/t/p/w$POSTER_DIMENSION"
         try {

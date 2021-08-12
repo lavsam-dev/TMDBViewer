@@ -133,7 +133,7 @@ class MainFragment : Fragment() {
     @RequiresApi(Build.VERSION_CODES.N)
     private fun getMoviesTMDB(): ArrayList<ResultsMovie>? {
         var queryResult: ArrayList<ResultsMovie>? = null
-        val query = "Race"
+        val query = "Race"  // отладочные варианты, позже уберу
         val urlMovies = "https://api.themoviedb.org/3/search/movie?api_key=$TMDB_API_KEY&language=en-US&query=$query&page=1"
         try {
             val uriMovies = URL(urlMovies)
