@@ -1,6 +1,6 @@
 package com.geekbrains.lavsam.TMDBViewer.model.dto
 
-data class MovieSearchDTO(
+data class MovieListDTO(
     val page: Int?,
     val total_pages: Int?,
     val total_results: Int?,

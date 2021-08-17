@@ -17,7 +17,7 @@ import com.geekbrains.lavsam.TMDBViewer.R
 import com.geekbrains.lavsam.TMDBViewer.databinding.MainFragmentBinding
 import com.geekbrains.lavsam.TMDBViewer.model.AppState
 import com.geekbrains.lavsam.TMDBViewer.model.data.MovieDetail
-import com.geekbrains.lavsam.TMDBViewer.model.dto.MovieSearchDTO
+import com.geekbrains.lavsam.TMDBViewer.model.dto.MovieListDTO
 import com.geekbrains.lavsam.TMDBViewer.model.dto.ResultsMovie
 import com.geekbrains.lavsam.TMDBViewer.viewmodel.MainViewModel
 import com.google.android.material.snackbar.Snackbar
@@ -148,8 +148,8 @@ class MainFragment : Fragment() {
                         BufferedReader(InputStreamReader(urlConnection.inputStream))
 
                     // преобразование ответа от сервера (JSON) в модель данных (WeatherDTO)
-                    val movieSearchDTO: MovieSearchDTO =
-                        Gson().fromJson(getLines(bufferedReader), MovieSearchDTO::class.java)
+                    val movieSearchDTO: MovieListDTO =
+                        Gson().fromJson(getLines(bufferedReader), MovieListDTO::class.java)
                     handler.post { queryResult = displayMovies(movieSearchDTO) }
 
                 } catch (e: Exception) {
@@ -173,7 +173,7 @@ class MainFragment : Fragment() {
         return reader.lines().collect(Collectors.joining("\n"))
     }
 
-    private fun displayMovies(movieSearchDTO: MovieSearchDTO): ArrayList<ResultsMovie>? {
+    private fun displayMovies(movieSearchDTO: MovieListDTO): ArrayList<ResultsMovie>? {
         val page = movieSearchDTO.page
         return movieSearchDTO.results
 
