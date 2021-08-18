@@ -1,13 +1,8 @@
 package com.geekbrains.lavsam.TMDBViewer.model.dto
 
-data class MovieListDTO(
-    val page: Int?,
-    val total_pages: Int?,
-    val total_results: Int?,
-    val results: ArrayList<ResultsMovie>?
-)
+import com.geekbrains.lavsam.TMDBViewer.model.data.MovieDetail
 
-data class ResultsMovie(
-    val id: Int?,
-    val original_title: String?
+data class MovieListDTO(
+    val page: Int,
+    val list: ArrayList<MovieDetail>
 )

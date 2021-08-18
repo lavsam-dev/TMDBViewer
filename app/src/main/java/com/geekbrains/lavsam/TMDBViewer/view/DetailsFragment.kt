@@ -61,7 +61,7 @@ class DetailsFragment : Fragment() {
     @RequiresApi(Build.VERSION_CODES.N)
     private fun loadMovieDetail(movieDetailData: MovieDetail) {
         // отладочные варианты, позже уберу
-        val urlMovieDetail = "https://api.themoviedb.org/3/movie/${movieDetailData.movie.id}?api_key=$TMDB_API_KEY"
+        val urlMovieDetail = "https://api.themoviedb.org/3/movie/${movieDetailData.id}?api_key=$TMDB_API_KEY"
 //        val urlMoviePoster = "https://image.tmdb.org/t/p/w$POSTER_DIMENSION"
         try {
             val uriMovieDetail = URL(urlMovieDetail)
@@ -109,7 +109,6 @@ class DetailsFragment : Fragment() {
             movieOverview.text = movieDetailDTO.overview.toString()
             movieRuntime.text = movieDetailDTO.runtime.toString()
             text_view_released.text = movieDetailDTO.release_date.toString()
-            text_view_votes.text = movieDetailDTO.vote_count.toString()
             text_view_popularity.text = movieDetailDTO.vote_average.toString()
 
         }

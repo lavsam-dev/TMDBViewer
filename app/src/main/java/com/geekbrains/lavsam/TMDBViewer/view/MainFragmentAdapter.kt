@@ -46,7 +46,7 @@ class MainFragmentAdapter :
 
         fun bind(movieDetail: MovieDetail) {
             with(binding) {
-                mainFragmentRecyclerItemTextView.text = movieDetail.movie.name
+                mainFragmentRecyclerItemTextView.text = movieDetail.original_title
                 root.setOnClickListener {
                     onItemViewClickListener?.onItemViewClick(movieDetail)
                 }
